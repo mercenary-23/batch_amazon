@@ -1,0 +1,62 @@
+CREATE TABLE `sale` (
+    `id` BIGINT AUTO_INCREMENT NOT NULL,
+    `order_id` VARCHAR(255), 
+    `status` VARCHAR(255), 
+    `fulfilment` VARCHAR(255), 
+    `sales_channel` VARCHAR(255), 
+    `ship_service_level` VARCHAR(255), 
+    `style` VARCHAR(255), 
+    `sku` VARCHAR(255), 
+    `category` VARCHAR(255), 
+    `size` VARCHAR(255), 
+    `asin` VARCHAR(255),
+    PRIMARY KEY(`id`)
+);
+
+-------------maria db------------------------
+성능 테스트
+chunk 단위 100
+시작 시간 : 17:36:12.687
+종료 시간 : 17:37:13.928
+약 61초
+
+chunk 단위 1000
+시작 시간 : 17:41:16.662
+종료 시간 : 17:41:37.286
+약 21초
+
+chunk 단위 5000
+시작 시간 : 17:44:09.55
+종료 시간 : 17:44:25.781
+약 16초
+
+chunk 단위 10000
+시작 시간 : 17:46:53.529
+종료 시간 : 17:47:09.639
+약 16초
+
+chunk 단위 20000
+시작 시간 : 17:49:11.16
+종료 시간 : 17:49:26.383
+약 15초
+
+chunk 단위 50000
+시작 시간 : 17:50:58.66
+종료 시간 : 17:51:13.242
+약 15초
+
+chunk 단위 100000
+시작 시간 : 17:52:44.595
+종료 시간 : 17:52:58.912
+약 14초
+
+--------------------------------------
+
+--------------mysql--------------------
+chunk 단위 5000
+12분 6.973초
+
+
+5000개 단위 INSERT 할떄
+mariadb = 28ms
+mysql = 3072ms
